@@ -98,17 +98,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 	<script>
-		function passwordCheck(){
-			var password = prompt("Please enter the password.");
-			if (password!=="Raider01"){
-				while(password !=="Raider01"){
-					password = prompt("Please enter the password.");
-				}
-			}
-			var element = document.getElementById("app");
-			element.classList.remove("hide");
-		}
-		window.onload=passwordCheck;
+
 
 		$(document).ready(function() {
 			var socket = io();
