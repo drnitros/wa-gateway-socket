@@ -99,6 +99,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 	<script>
 		function passwordCheck(){
+			var password = prompt("Please enter the password.");
+			if (password!=="WaGateway"){
+				while(password !=="WaGateway"){
+					password = prompt("Please enter the password.");
+				}
+			}
 			var element = document.getElementById("app");
 			element.classList.remove("hide");
 		}
