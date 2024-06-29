@@ -7,7 +7,7 @@ const fs = require('fs');
 const { phoneNumberFormatter } = require('./helpers/formatter');
 const fileUpload = require('express-fileupload');
 const axios = require('axios');
-const port = process.env.PORT || 89;
+const port = process.env.PORT || 3001;
 
 const app = express();
 const server = http.createServer(app);
@@ -67,6 +67,11 @@ const getSessionsFile = function() {
 const createSession = function(id, description) {
   console.log('Creating session: ' + id);
   const client = new Client({
+webVersionCache: {
+    type: "remote",
+    remotePath:
+      "https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2412.54.html",
+  },
     restartOnAuthFail: true,
     puppeteer: {
       headless: true,
