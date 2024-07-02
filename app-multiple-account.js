@@ -67,11 +67,6 @@ const getSessionsFile = function() {
 const createSession = function(id, description) {
   console.log('Creating session: ' + id);
   const client = new Client({
-webVersionCache: {
-    type: "remote",
-    remotePath:
-      "https://metasun.id/html/2.3000.1014600264-alpha.html",
-  },
     restartOnAuthFail: true,
     puppeteer: {
       headless: true,
@@ -101,7 +96,10 @@ webVersionCache: {
     });
   });
 
-  client.on('ready', () => {
+  client.on('ready', async() => {
+    const version = await client.getWWebVersion();
+    console.log(`WWeb v${version}`);
+
     io.emit('ready', { id: id });
     io.emit('message', { id: id, text: 'Whatsapp is ready!' });
 
